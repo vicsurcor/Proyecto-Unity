@@ -131,8 +131,7 @@ public class PlayerController : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
 
-        if ((other.gameObject.CompareTag("AreaAttack") && enemyAnimator.GetBool("is Attacking")) 
-            || other.gameObject.CompareTag("DeathPit"))
+        if (other.gameObject.CompareTag("")|| other.gameObject.CompareTag("DeathPit"))
         {
             Debug.Log("MuerteJugador");
             
@@ -143,4 +142,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Recarga la escena y reanima al jugador
+    private void RespawnPlayer()
+    {
+
+        respawnPlayer.Invoke();
+
+    }
 }

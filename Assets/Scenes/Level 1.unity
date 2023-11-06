@@ -304,7 +304,6 @@ GameObject:
   - component: {fileID: 83040948}
   - component: {fileID: 83040947}
   - component: {fileID: 83040946}
-  - component: {fileID: 83040949}
   m_Layer: 0
   m_Name: DeathPit
   m_TagString: DeathPit
@@ -2714,20 +2713,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &83040949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83040944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49d82b5750a470a46a1e0ca591f56c00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene:
-    m_Handle: 0
 --- !u!1 &110564147
 GameObject:
   m_ObjectHideFlags: 3

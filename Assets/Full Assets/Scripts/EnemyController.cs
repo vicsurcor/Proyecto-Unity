@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour
     //Reconoce el ataque de el jugador y mata el enemigo(si el jugador sigue vivo)
     public void OnTriggerEnter2D(Collider2D other)
     {
-        animator.SetBool("Death 0", false);
+        
 
         if (other.gameObject.CompareTag("PlayerRange") && playerAnimator.GetBool("is Attacking"))
         {
