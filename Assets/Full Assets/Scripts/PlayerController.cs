@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public float jumpPower;
     private bool isFacingRight = true;
     private float horizontal;
-
+    private Animator enemyAnimator;
 
     
 
@@ -32,6 +32,15 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate(){
 
         CheckMovement();
+        CheckAnim();
+
+    }
+
+    public void CheckAnim()
+    {
+
+        enemyAnimator = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>();
+
 
     }
 
@@ -114,12 +123,15 @@ public class PlayerController : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("DeathPit"))
+        if ((other.gameObject.CompareTag("AreaAttack") && enemyAnimator.GetBool("is Attacking")) 
+            || other.gameObject.CompareTag("DeathPit"))
         {
+            Debug.Log("MuerteJugador");
             
             animator.SetTrigger("is Dead");
 
         }
+        
 
     }
 

@@ -8,6 +8,7 @@ public class AttackScript : MonoBehaviour
     public SpriteRenderer sprtRnd;
     public Animator animator;
     
+    
     GameObject player;
     // Start is called before the first frame update
 
@@ -20,37 +21,47 @@ public class AttackScript : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        
-
-        if (other.gameObject.CompareTag("Player"))
+        if (!animator.GetBool("Death 0"))
         {
-            player = GameObject.FindGameObjectWithTag("Player");
-            Move();
-            
+
+            if (other.gameObject.CompareTag("Player"))
+            {
+                player = GameObject.FindGameObjectWithTag("Player");
+                Move();
+                
+            }
+
         }
+
+        
 
     }
 
     public void OnTriggerExit2D(Collider2D other)
     {
-
-        if (other.gameObject.CompareTag("Player"))
+        if (!animator.GetBool("Death 0"))
         {
 
-            animator.SetBool("sees Player", false);
+            if (other.gameObject.CompareTag("Player"))
+            {
 
+                animator.SetBool("sees Player", false);
+
+            }
         }
-
     }
     public void Move()
     {
-        animator.SetBool("sees Player", true);
 
-        Debug.Log("Vision de Jugador");
-        Vector2 direction = new Vector2(player.transform.position.x - transform.position.x,rb.velocity.y);
-        rb.velocity = direction;
+        if (!animator.GetBool("Death 0"))
+        {
+            animator.SetBool("sees Player", true);
+
+            Debug.Log("Vision de Jugador");
+            Vector2 direction = new Vector2(player.transform.position.x - (-1 + transform.position.x),rb.velocity.y);
+            rb.velocity = direction;
         
-        
+        }
 
     }
 }

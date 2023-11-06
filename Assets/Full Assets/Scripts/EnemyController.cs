@@ -41,11 +41,13 @@ public class EnemyController : MonoBehaviour
     
     public void OnTriggerEnter2D(Collider2D other)
     {
+        animator.SetBool("Death 0", false);
 
-        if (other.gameObject.CompareTag("AttackRange") && playerAnimator.GetBool("is Attacking"))
+        if (other.gameObject.CompareTag("PlayerRange") && playerAnimator.GetBool("is Attacking"))
         {
-
+            animator.SetBool("Death 0", true);
             animator.SetTrigger("Death");
+            
 
         }
     }
