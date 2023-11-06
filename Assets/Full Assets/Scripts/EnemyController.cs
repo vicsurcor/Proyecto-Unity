@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
         
     }
 
+        
         public void CheckMovement()
     {
 
@@ -37,8 +38,8 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
     
+    //Reconoce el ataque de el jugador y mata el enemigo(si el jugador sigue vivo)
     public void OnTriggerEnter2D(Collider2D other)
     {
         animator.SetBool("Death 0", false);
@@ -53,7 +54,7 @@ public class EnemyController : MonoBehaviour
     }
 
     
-
+    //Borra al enemigo de la ejecucion
     public void Despawn()
     {
 

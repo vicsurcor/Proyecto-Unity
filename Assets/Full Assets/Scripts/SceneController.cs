@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-
+  
+  //Recarga la escena para el respawn
    public void Respawn(string sceneName)
    {
 

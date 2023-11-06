@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Recoge en animator de el enemigo 
     public void CheckAnim()
     {
 
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Confirma el movimiento y la direccion del personaje principal
     public void CheckMovement()
 
     {
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Mueve el personaje principal
     public void Move(InputAction.CallbackContext context)
     {
 
@@ -89,6 +92,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Inicia la animacion de ataque
     public void Attack()
     {
 
@@ -96,6 +100,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Finaliza la animacion de ataque
     public void StopAttack()
     {
 
@@ -103,6 +108,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Realiza el salto si el personaje esta en contacto con el suelo, en caso contrario no salta
     public void Jump(){
 
         if (!CheckGround.isGrounded){
@@ -120,6 +126,8 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+
+    //Reconoce el ataque de un enemigo(en caso de que el enemigo no haya muerto) o la caida del mapa y mata al personaje
     public void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -135,10 +143,4 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void RespawnPlayer()
-    {
-
-        respawnPlayer.Invoke();
-
-    }
 }

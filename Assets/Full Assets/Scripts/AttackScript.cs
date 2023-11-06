@@ -8,17 +8,11 @@ public class AttackScript : MonoBehaviour
     public SpriteRenderer sprtRnd;
     public Animator animator;
     
-    
     GameObject player;
     // Start is called before the first frame update
 
 
-    public void FixedUpdate()
-    {
-        
-        
-
-    }
+    //Reconoce que el jugador es visible por el enemigo, se mueve hacia el(mientras no este muerto)
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (!animator.GetBool("Death 0"))
@@ -37,6 +31,7 @@ public class AttackScript : MonoBehaviour
 
     }
 
+    //Reconoce que el jugador esta fuera del rango de vision del enemigo, deja de moverse(si no esta muerto)
     public void OnTriggerExit2D(Collider2D other)
     {
         if (!animator.GetBool("Death 0"))
@@ -50,6 +45,8 @@ public class AttackScript : MonoBehaviour
             }
         }
     }
+
+    //Mueve al enemigo hacia el jugador(mientras no este muerto)
     public void Move()
     {
 

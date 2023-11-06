@@ -9,7 +9,7 @@ public class CheckPass : MonoBehaviour
     public Object cave;
     public static bool caveOpen;
     
-    // Update is called once per frame
+    //Reconoce que el jugador ha pasado cierto punto y hace la cueva visible
     public void OnTriggerEnter2D(Collider2D collider)
     {
         

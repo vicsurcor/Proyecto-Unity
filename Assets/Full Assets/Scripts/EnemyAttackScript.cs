@@ -10,6 +10,7 @@ public class EnemyAttackScript : MonoBehaviour
     public Animator animator;
 
 
+    //Reconoce que el jugador esta en rango de ataque, realiza el ataque(si no ha muerto)
     public void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -23,6 +24,7 @@ public class EnemyAttackScript : MonoBehaviour
 
     }
 
+    //Reconoce que el jugador está fuera de rango de ataque, deja de atacar
     public void OnTriggerExit2D(Collider2D other)
     {
 
