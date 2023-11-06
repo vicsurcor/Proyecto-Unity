@@ -80,6 +80,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void Attack()
+    {
+
+        animator.SetBool("is Attacking", true);
+
+    }
+
+    public void StopAttack()
+    {
+
+        animator.SetBool("is Attacking", false);
+
+    }
+
     public void Jump(){
 
         if (!CheckGround.isGrounded){
@@ -102,7 +116,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("DeathPit"))
         {
-
+            rb.velocity = new Vector2(0,0);
             animator.SetTrigger("is Dead");
 
         }

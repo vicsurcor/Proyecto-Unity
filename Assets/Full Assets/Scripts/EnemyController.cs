@@ -8,17 +8,46 @@ public class EnemyController : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer sprtRnd;
     public Animator animator;
+    public Animator playerAnimator;
 
     // Start is called before the first frame update
-    void Start()
+    
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+
+            animator.SetBool("Attacking", true);
+
+        }
+        else if (other.gameObject.CompareTag("PlayerRange") && playerAnimator.GetBool("is Attacking"))
+        {
+
+            animator.SetTrigger("Death");
+
+
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerExit2D(Collider2D other)
     {
-        
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+
+            animator.SetBool("Attacking", false);
+
+        }
+
+    }
+
+    public void Despawn()
+    {
+
+        Destroy(gameObject);
+
     }
 
     

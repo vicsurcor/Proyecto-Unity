@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DeathPit
   - Enemy
+  - PlayerRange
   layers:
   - Default
   - TransparentFX
