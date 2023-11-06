@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -11,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer sprtRnd;
     public Animator animator;
+
+    public UnityEvent respawnPlayer;
     public float moveSpeed;
     public float jumpPower;
     private bool isFacingRight = true;
@@ -28,11 +31,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate(){
 
-        checkMovement();
+        CheckMovement();
 
     }
 
-    public void checkMovement()
+    public void CheckMovement()
 
     {
 
@@ -92,5 +95,24 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
 
         }
+        
+    }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("DeathPit"))
+        {
+
+            animator.SetTrigger("is Dead");
+
+        }
+
+    }
+
+    private void RespawnPlayer()
+    {
+
+        respawnPlayer.Invoke();
+
     }
 }
