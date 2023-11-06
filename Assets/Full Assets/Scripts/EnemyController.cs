@@ -25,13 +25,13 @@ public class EnemyController : MonoBehaviour
 
         if (isFacingRight && rb.velocity.x < 0){
 
-            sprtRnd.flipX = true;
+            sprtRnd.flipX = false;
             isFacingRight = false;
 
         }
         else if (!isFacingRight && rb.velocity.x > 0) {
 
-            sprtRnd.flipX = false;
+            sprtRnd.flipX = true;
             isFacingRight = true;
 
         }

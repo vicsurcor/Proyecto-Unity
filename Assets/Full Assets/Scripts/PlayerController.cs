@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public float jumpPower;
     private bool isFacingRight = true;
     private float horizontal;
-    private Animator enemyAnimator;
+    public Animator enemyAnimator;
 
     
 
@@ -33,15 +34,22 @@ public class PlayerController : MonoBehaviour
 
         CheckMovement();
         CheckAnim();
-
+        
     }
 
-    //Recoge en animator de el enemigo 
+    //Recoge en animator de el enemigo(el primero creado cada vez) y lo actualiza cuando no existe ese
     public void CheckAnim()
     {
-
-        enemyAnimator = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>();
-
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies.Length > 0)
+        {
+            enemyAnimator = enemies.Last().GetComponent<Animator>();
+            
+        }
+        else
+        {
+            Debug.Log("No hay Objetos'Enemy' restantes");
+        }
 
     }
 
@@ -131,7 +139,7 @@ public class PlayerController : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.CompareTag("")|| other.gameObject.CompareTag("DeathPit"))
+        if ((enemyAnimator.GetBool("is Attacking") && other.gameObject.CompareTag("AreaAttack"))|| other.gameObject.CompareTag("DeathPit"))
         {
             Debug.Log("MuerteJugador");
             

@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - PlayerRange
   - AreaAttack
+  - Ground
   layers:
   - Default
   - TransparentFX
